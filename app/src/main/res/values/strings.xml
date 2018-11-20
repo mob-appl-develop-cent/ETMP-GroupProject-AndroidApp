@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Enterprise App</string>
+    <string name="refresh_button_text">Refresh</string>
+
+    <string name="patients_activity_title">Patients List</string>
+    <string name="patient_details">Age: %1$d\nAddress: %2$s\nRoom Number: %3$s\nEmergency Number: %4$s\nDepartment: %5$s\nDoctor: %6$s</string>
+    <string name="patient_name">%1$s %2$s</string>
+    <string name="menu_refresh_text">Refresh</string>
+    <string name="form_first_name_hint">First Name</string>
+    <string name="form_last_name_hint">Last Name</string>
+    <string name="form_age_hint">Age</string>
+    <string name="form_address_hint">Address</string>
+    <string name="form_emergency_number_hint">Emergency Number</string>
+    <string name="form_department_hint">Department</string>
+    <string name="form_roon_number_hint">Room Number</string>
+    <string name="form_doctor_hint">Doctor</string>
+    <string name="create_patient_button_text">Create</string>
+
+    <string name="create_patient_activity_title">Create Patient</string>
+
+    <string name="empty_field_error">This field cannot be empty.</string>
+</resources>
