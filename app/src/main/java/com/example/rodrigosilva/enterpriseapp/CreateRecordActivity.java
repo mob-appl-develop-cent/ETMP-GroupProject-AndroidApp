@@ -44,6 +44,8 @@ public class CreateRecordActivity extends AppCompatActivity {
     TextInputEditText category;
     @BindView(R.id.createRecordButton)
     Button createRecordButton;
+    @BindView(R.id.details)
+    TextInputEditText details;
 
     static EditText dateEditText;
     private int patientId;
@@ -81,7 +83,8 @@ public class CreateRecordActivity extends AppCompatActivity {
         Record record = new Record(dateEditText.getText().toString(),
                 nurseName.getText().toString(),
                 type.getText().toString(),
-                category.getText().toString());
+                category.getText().toString(),
+                details.getText().toString());
 
         postRecord(record);
     }

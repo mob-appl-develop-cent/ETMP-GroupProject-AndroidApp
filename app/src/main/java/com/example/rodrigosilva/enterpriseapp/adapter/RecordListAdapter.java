@@ -50,7 +50,7 @@ public class RecordListAdapter extends RecyclerView.Adapter<RecordListAdapter.My
         myViewHolder.dateTextView.setText(record.getDate());
         myViewHolder.categoryTextView.setText(record.getCategory());
         myViewHolder.typeTextView.setText(record.getType());
-
+        myViewHolder.detailsTextView.setText(record.getDetails());
     }
 
     @Override
@@ -71,7 +71,10 @@ public class RecordListAdapter extends RecyclerView.Adapter<RecordListAdapter.My
 
         @BindView(R.id.typeTextView)
         TextView typeTextView;
-        
+
+        @BindView(R.id.detailsTextView)
+        TextView detailsTextView;
+
         MyViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);

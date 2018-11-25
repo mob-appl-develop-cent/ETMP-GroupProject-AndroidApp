@@ -11,12 +11,14 @@ public class Record {
 
     private String type;
     private String category;
+    private String details;
 
-    public Record(String date, String nurseName, String type, String category) {
+    public Record(String date, String nurseName, String type, String category, String details) {
         this.date = date;
         this.nurseName = nurseName;
         this.type = type;
         this.category = category;
+        this.details = details;
     }
 
     public String getDate() {
@@ -49,5 +51,13 @@ public class Record {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
     }
 }
