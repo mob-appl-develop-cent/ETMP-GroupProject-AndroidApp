@@ -19,4 +19,13 @@
     <string name="create_patient_activity_title">Create Patient</string>
 
     <string name="empty_field_error">This field cannot be empty.</string>
+
+    <string name="records_activity_title">Records</string>
+    <string name="record_date_hint">Date</string>
+
+    <string name="date_string">%1$d/%2$d/%3$d</string>
+    <string name="nurse_name_hint">Nurse Name</string>
+    <string name="type_hint">Type</string>
+    <string name="category_hint">Category</string>
+    <string name="create_record_button">Create Record</string>
 </resources>

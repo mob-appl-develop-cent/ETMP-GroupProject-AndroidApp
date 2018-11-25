@@ -79,7 +79,7 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
         public MyViewHolder(View view) {
             super(view);
             patientItemView = (CardView) view;
-            patientNameTextView = view.findViewById(R.id.recordTitleTextView);
+            patientNameTextView = view.findViewById(R.id.nurseNameTextView);
             detailsTextView = view.findViewById(R.id.detailsTextView);
         }
     }

@@ -10,21 +10,24 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.rodrigosilva.enterpriseapp.R;
-import com.example.rodrigosilva.enterpriseapp.model.Patient;
+import com.example.rodrigosilva.enterpriseapp.model.Record;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class RecordListAdapter extends RecyclerView.Adapter<RecordListAdapter.MyViewHolder> {
 
-    private List<Patient> patientList;
+    private List<Record> recordList;
     private Context context;
 
-    public RecordListAdapter(List<Patient> patientList) {
-        this.patientList = patientList;
+    public RecordListAdapter(List<Record> recordList) {
+        this.recordList = recordList;
     }
 
-    public void updatePatientList(List<Patient> newPatientList) {
-        patientList = newPatientList;
+    public void updateRecordsList(List<Record> newRecordList) {
+        recordList = newRecordList;
         notifyDataSetChanged();
     }
 
@@ -41,26 +44,37 @@ public class RecordListAdapter extends RecyclerView.Adapter<RecordListAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
+        Record record = recordList.get(i);
 
+        myViewHolder.nurseNameTextView.setText(record.getNurseName());
+        myViewHolder.dateTextView.setText(record.getDate());
+        myViewHolder.categoryTextView.setText(record.getCategory());
+        myViewHolder.typeTextView.setText(record.getType());
 
     }
 
     @Override
     public int getItemCount() {
-        return patientList.size();
+        return recordList.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    static class MyViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        public TextView reportTitleTextView, reportDetailsTextView;
-        public CardView reportItemView;
+        @BindView(R.id.nurseNameTextView)
+        TextView nurseNameTextView;
 
+        @BindView(R.id.categoryTextView)
+        TextView categoryTextView;
 
-        public MyViewHolder(View view) {
+        @BindView(R.id.dateTextView)
+        TextView dateTextView;
+
+        @BindView(R.id.typeTextView)
+        TextView typeTextView;
+        
+        MyViewHolder(View view) {
             super(view);
-            reportItemView = (CardView) view;
-            reportTitleTextView = view.findViewById(R.id.recordTitleTextView);
-            reportDetailsTextView = view.findViewById(R.id.recordDetailsTextView);
+            ButterKnife.bind(this, view);
         }
     }
 

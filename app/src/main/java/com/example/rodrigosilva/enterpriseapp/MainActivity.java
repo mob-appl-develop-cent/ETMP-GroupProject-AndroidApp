@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements PatientListAdapte
         EnterpriseAPI enterpriseAPI = retrofit.create(EnterpriseAPI.class);
 
         showProgress(true);
-        Call<List<Patient>> call = enterpriseAPI.loadAllPatients();
+        Call<List<Patient>> call = enterpriseAPI.getAllPatients();
         call.enqueue(this);
     }
 
@@ -143,6 +143,8 @@ public class MainActivity extends AppCompatActivity implements PatientListAdapte
 
     @Override
     public void onPatientSelected(int patientId) {
-
+        Intent intent = new Intent(this, PatientRecordsActivity.class);
+        intent.putExtra(AppConstants.PATIENT_ID_KEY, patientId);
+        startActivity(intent);
     }
 }

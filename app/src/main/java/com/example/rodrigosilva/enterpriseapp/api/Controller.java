@@ -28,7 +28,7 @@ public class Controller implements Callback<List<Patient>> {
 
         EnterpriseAPI enterpriseAPI = retrofit.create(EnterpriseAPI.class);
 
-        Call<List<Patient>> call = enterpriseAPI.loadAllPatients();
+        Call<List<Patient>> call = enterpriseAPI.getAllPatients();
         call.enqueue(this);
 
     }
