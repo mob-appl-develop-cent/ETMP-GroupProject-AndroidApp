@@ -33,7 +33,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.rodrigosilva.enterpriseapp.AppConstants.BASE_URL;
 
-public class PatientRecordsActivity extends AppCompatActivity implements Callback<List<Record>> {
+public class PatientRecordsActivity extends AppCompatActivity implements Callback<List<List<Record>>> {
 
     @BindView(R.id.recordsListView)
     RecyclerView recordListView;
@@ -47,7 +47,7 @@ public class PatientRecordsActivity extends AppCompatActivity implements Callbac
     private static final float ALPHA_VISIBLE = 1;
     private static final float ALPHA_HIDDEN = 0.2f;
 
-    private int patientId;
+    private String patientId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,7 @@ public class PatientRecordsActivity extends AppCompatActivity implements Callbac
         setContentView(R.layout.activity_patient_records);
         ButterKnife.bind(this);
 
-        patientId = getIntent().getIntExtra(AppConstants.PATIENT_ID_KEY, 0);
+        patientId = getIntent().getStringExtra(AppConstants.PATIENT_ID_KEY);
 
         setActionBar();
 
@@ -72,7 +72,7 @@ public class PatientRecordsActivity extends AppCompatActivity implements Callbac
     private void init() {
         recordListView.setHasFixedSize(true);
         recordListView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new RecordListAdapter(new ArrayList<Record>());
+        adapter = new RecordListAdapter(new ArrayList<List<Record>>());
         recordListView.setAdapter(adapter);
 
         createRecordFAB.setOnClickListener(new View.OnClickListener() {
@@ -103,15 +103,15 @@ public class PatientRecordsActivity extends AppCompatActivity implements Callbac
         EnterpriseAPI enterpriseAPI = retrofit.create(EnterpriseAPI.class);
 
         showProgress(true);
-        Call<List<Record>> call = enterpriseAPI.getPatientRecords(patientId);
+        Call<List<List<Record>>> call = enterpriseAPI.getPatientRecords(patientId);
         call.enqueue(this);
     }
 
     @Override
-    public void onResponse(Call<List<Record>> call, Response<List<Record>> response) {
+    public void onResponse(Call<List<List<Record>>> call, Response<List<List<Record>>> response) {
         showProgress(false);
         if(response.isSuccessful()) {
-            List<Record> records = response.body();
+            List<List<Record>> records = response.body();
             if (records != null) {
                 adapter.updateRecordsList(records);
             }
@@ -122,7 +122,7 @@ public class PatientRecordsActivity extends AppCompatActivity implements Callbac
     }
 
     @Override
-    public void onFailure(Call<List<Record>> call, Throwable t) {
+    public void onFailure(Call<List<List<Record>>> call, Throwable t) {
         showProgress(false);
         t.printStackTrace();
     }

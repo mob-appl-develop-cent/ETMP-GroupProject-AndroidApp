@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class Patient {
 
     @SerializedName(value="_id")
-    private int id;
+    private String id;
     @SerializedName(value="first_name")
     private String firstName;
     @SerializedName(value="last_name")
@@ -30,11 +30,11 @@ public class Patient {
         this.doctor = doctor;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

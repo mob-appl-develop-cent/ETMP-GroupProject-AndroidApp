@@ -23,10 +23,10 @@ public interface EnterpriseAPI {
     Call<ResponseBody> createPatient(@Body Patient patient);
 
     @GET("patients/{id}/records")
-    Call<List<Record>> getPatientRecords(@Path("id") int patientId);
+    Call<List<List<Record>>> getPatientRecords(@Path("id") String patientId);
 
     @Headers({"Content-Type: application/json", "Cache-Control: max-age=640000"})
     @POST("patients/{id}/records")
-    Call<ResponseBody> createRecord(@Path("id") int patientId, @Body Record record);
+    Call<ResponseBody> createRecord(@Path("id") String patientId, @Body Record record);
 
 }

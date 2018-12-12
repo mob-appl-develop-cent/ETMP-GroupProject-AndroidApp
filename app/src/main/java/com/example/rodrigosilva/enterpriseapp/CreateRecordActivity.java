@@ -48,14 +48,14 @@ public class CreateRecordActivity extends AppCompatActivity {
     TextInputEditText details;
 
     static EditText dateEditText;
-    private int patientId;
+    private String patientId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_record);
 
-        patientId = getIntent().getIntExtra(AppConstants.PATIENT_ID_KEY, 0);
+        patientId = getIntent().getStringExtra(AppConstants.PATIENT_ID_KEY);
 
         ButterKnife.bind(this);
 

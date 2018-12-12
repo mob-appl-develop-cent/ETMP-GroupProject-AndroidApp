@@ -17,7 +17,7 @@ import java.util.List;
 public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.MyViewHolder> {
 
     public interface PatientListListener {
-        public void onPatientSelected(int patientId);
+        public void onPatientSelected(String patientId);
     }
 
     private List<Patient> patientList;

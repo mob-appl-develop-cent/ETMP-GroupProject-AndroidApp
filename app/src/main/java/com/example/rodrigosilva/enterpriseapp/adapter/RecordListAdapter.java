@@ -19,14 +19,19 @@ import butterknife.ButterKnife;
 
 public class RecordListAdapter extends RecyclerView.Adapter<RecordListAdapter.MyViewHolder> {
 
-    private List<Record> recordList;
+    private List<List<Record>> recordList;
     private Context context;
 
-    public RecordListAdapter(List<Record> recordList) {
+    public RecordListAdapter(List<List<Record>> recordList) {
         this.recordList = recordList;
     }
 
-    public void updateRecordsList(List<Record> newRecordList) {
+//    public void updateRecordsList(List<Record> newRecordList) {
+//        recordList = newRecordList;
+//        notifyDataSetChanged();
+//    }
+
+    public void updateRecordsList(List<List<Record>> newRecordList) {
         recordList = newRecordList;
         notifyDataSetChanged();
     }
@@ -44,7 +49,7 @@ public class RecordListAdapter extends RecyclerView.Adapter<RecordListAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
-        Record record = recordList.get(i);
+        Record record = recordList.get(i).get(0);
 
         myViewHolder.nurseNameTextView.setText(record.getNurseName());
         myViewHolder.dateTextView.setText(record.getDate());

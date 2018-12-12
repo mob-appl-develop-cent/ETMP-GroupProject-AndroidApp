@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements PatientListAdapte
     }
 
     @Override
-    public void onPatientSelected(int patientId) {
+    public void onPatientSelected(String patientId) {
         Intent intent = new Intent(this, PatientRecordsActivity.class);
         intent.putExtra(AppConstants.PATIENT_ID_KEY, patientId);
         startActivity(intent);
